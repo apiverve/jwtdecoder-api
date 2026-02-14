@@ -1,23 +1,25 @@
 openapi: 3.0.4
 info:
   title: JWT Decoder
-  description: JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification.
+  description: >-
+    JWT Decoder decodes JWT tokens to reveal header and payload information
+    without performing signature verification.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/jwtdecoder:
     post:
       summary: Decode JWT Token
-      description: JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification.
+      description: Decode JWT token without verification
       operationId: jwtdecoder
       parameters: []
       responses:
@@ -35,11 +37,11 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
                   header:
                     alg: HS256
@@ -50,14 +52,16 @@ paths:
                     iat: 1516239022
                   signature: SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                   isExpired: false
-                  expiresAt: 
-                  warning: This API only decodes JWT tokens. It does NOT verify signatures. Do not use for security validation.
+                  expiresAt: null
+                  warning: >-
+                    This API only decodes JWT tokens. It does NOT verify
+                    signatures. Do not use for security validation.
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
       requestBody:
         required: true
         content:
@@ -68,11 +72,8 @@ paths:
                 token:
                   type: string
                   description: JWT token to decode
-                  example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
               required:
-              - token
-              example:
-                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                - token
 components:
   securitySchemes:
     api_key:
@@ -80,4 +81,7 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
+sampleRequest:
+  token: >-
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
