@@ -14,20 +14,14 @@ API_URL = 'https://api.apiverve.com/v1/jwtdecoder'
 
 def call_jwtdecoder_api():
     """
-    Make a POST request to the JWT Decoder API
+    Make a GET request to the JWT Decoder API
     """
     try:
-        # Request body
-        request_body &#x3D; {
-    &#x27;token&#x27;: &#x27;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&#x27;
-}
-
         headers = {
-            'x-api-key': API_KEY,
-            'Content-Type': 'application/json'
+            'x-api-key': API_KEY
         }
 
-        response = requests.post(API_URL, headers=headers, json=request_body)
+        response = requests.get(API_URL, headers=headers)
 
         # Raise exception for HTTP errors
         response.raise_for_status()
