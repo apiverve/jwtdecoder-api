@@ -60,7 +60,6 @@ namespace APIVerve.API.JWTDecoder
     public partial class Payload
     {
         [JsonProperty("sub")]
-        [JsonConverter(typeof(ParseStringConverter))]
         public long Sub { get; set; }
 
         [JsonProperty("name")]
