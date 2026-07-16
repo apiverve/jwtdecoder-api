@@ -1,0 +1,49 @@
+{
+    "name": "apiverve/jwtdecoder",
+    "description": "JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification.",
+    "version": "1.2.0",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "APIVerve",
+            "email": "hello@apiverve.com",
+            "homepage": "https://apiverve.com"
+        }
+    ],
+    "keywords": [
+        "api",
+        "apiverve",
+        "jwtdecoder",
+        "jwt decoder",
+        "token decoder",
+        "jwt parser",
+        "authentication token",
+        "decode jwt"
+    ],
+    "homepage": "https://apiverve.com/marketplace/jwtdecoder?utm_source=php&utm_medium=homepage",
+    "support": {
+        "email": "hello@apiverve.com",
+        "docs": "https://docs.apiverve.com/ref/jwtdecoder",
+        "source": "https://github.com/apiverve/jwtdecoder-API/tree/main/php"
+    },
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "APIVerve\\Jwtdecoder\\": "php/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "APIVerve\\Jwtdecoder\\Tests\\": "php/tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
