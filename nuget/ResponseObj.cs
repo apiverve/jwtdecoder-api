@@ -25,6 +25,9 @@ namespace APIVerve.API.JWTDecoder
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -39,10 +42,28 @@ namespace APIVerve.API.JWTDecoder
         public string Signature { get; set; }
 
         [JsonProperty("isExpired")]
-        public bool IsExpired { get; set; }
+        public bool? IsExpired { get; set; }
 
         [JsonProperty("expiresAt")]
         public object ExpiresAt { get; set; }
+
+        [JsonProperty("issuedAt")]
+        public DateTimeOffset? IssuedAt { get; set; }
+
+        [JsonProperty("tokenAge")]
+        public string TokenAge { get; set; }
+
+        [JsonProperty("algorithm")]
+        public string Algorithm { get; set; }
+
+        [JsonProperty("expiresIn")]
+        public object ExpiresIn { get; set; }
+
+        [JsonProperty("notYetValid")]
+        public bool? NotYetValid { get; set; }
+
+        [JsonProperty("securityAnalysis")]
+        public SecurityAnalysis SecurityAnalysis { get; set; }
 
         [JsonProperty("warning")]
         public string Warning { get; set; }
@@ -60,12 +81,39 @@ namespace APIVerve.API.JWTDecoder
     public partial class Payload
     {
         [JsonProperty("sub")]
-        public long Sub { get; set; }
+        public long? Sub { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("iat")]
-        public long Iat { get; set; }
+        public long? Iat { get; set; }
+    }
+
+    public partial class SecurityAnalysis
+    {
+        [JsonProperty("isUnsecured")]
+        public bool? IsUnsecured { get; set; }
+
+        [JsonProperty("hasExpiration")]
+        public bool? HasExpiration { get; set; }
+
+        [JsonProperty("isLongLived")]
+        public bool? IsLongLived { get; set; }
+
+        [JsonProperty("issues")]
+        public string[] Issues { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
