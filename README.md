@@ -197,11 +197,53 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the JWT Decoder API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "header": {
+      "alg": "HS256",
+      "typ": "JWT"
+    },
+    "payload": {
+      "sub": "1234567890",
+      "name": "John Doe",
+      "iat": 1516239022
+    },
+    "signature": "SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "isExpired": false,
+    "expiresAt": null,
+    "issuedAt": "2018-01-18T01:30:22.000Z",
+    "tokenAge": "2557 days",
+    "algorithm": "HS256",
+    "expiresIn": null,
+    "notYetValid": false,
+    "securityAnalysis": {
+      "isUnsecured": false,
+      "hasExpiration": false,
+      "isLongLived": false,
+      "issues": [
+        "Token has no expiration (exp) claim — it never expires"
+      ]
+    },
+    "warning": "This API only decodes JWT tokens. It does NOT verify signatures. Do not use for security validation."
+  }
 }
 ```
 
