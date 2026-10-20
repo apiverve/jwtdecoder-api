@@ -1,7 +1,7 @@
 {
   "name": "@apiverve/jwtdecoder",
-  "version": "1.2.0",
-  "description": "JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification.",
+  "version": "1.2.2",
+  "description": "JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library.",
   "main": "index.js",
   "types": "index.d.ts",
   "sideEffects": false,
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "jwt decoder", "token decoder", "jwt parser", "authentication token", "decode jwt"
+    "json web token decode", "jwt decoder api", "json token decode", "jwt decode", "jwt decoder"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/jwtdecoder-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/jwtdecoder?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/jwtdecoder?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
