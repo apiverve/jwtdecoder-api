@@ -3,7 +3,9 @@ info:
   title: JWT Decoder
   description: >-
     JWT Decoder decodes JWT tokens to reveal header and payload information
-    without performing signature verification.
+    without performing signature verification. It handles JSON web token decode
+    from any language over REST, so you can inspect claims and expiry without
+    adding a JWT library.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -18,7 +20,7 @@ servers:
 paths:
   /v1/jwtdecoder:
     post:
-      summary: Decode JWT Token
+      summary: JWT Decoder
       description: Decode JWT token without verification
       operationId: jwtdecoder
       parameters: []
@@ -94,5 +96,4 @@ components:
 security:
   - api_key: []
 sampleRequest:
-  token: >-
-    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
