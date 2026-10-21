@@ -1,6 +1,6 @@
 # JWT Decoder API - PHP Package
 
-JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification.
+JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library.
 
 ## Installation
 
@@ -106,11 +106,11 @@ $client = new Client(
 
 ## Documentation
 
-For more information, visit the [API Documentation](https://docs.apiverve.com/ref/jwtdecoder?utm_source=packagist&utm_medium=readme).
+For more information, visit the [API Documentation](https://docs.apiverve.com/ref/jwtdecoder?utm_source=packagist&utm_medium=referral&utm_content=readme).
 
 ## Support
 
-- Website: [https://apiverve.com/marketplace/jwtdecoder?utm_source=php&utm_medium=readme](https://apiverve.com/marketplace/jwtdecoder?utm_source=php&utm_medium=readme)
+- Website: [https://apiverve.com/marketplace/jwtdecoder?utm_source=php&utm_medium=referral&utm_content=readme](https://apiverve.com/marketplace/jwtdecoder?utm_source=php&utm_medium=referral&utm_content=readme)
 - Email: hello@apiverve.com
 
 ## License
