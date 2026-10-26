@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/jwtdecoder",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library.",
   "main": "index.js",
   "types": "index.d.ts",
