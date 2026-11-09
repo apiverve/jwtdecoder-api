@@ -1,6 +1,6 @@
 # [JWT Decoder API](https://apiverve.com/marketplace/jwtdecoder?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library.
+JWT Decoder decodes JWT tokens to reveal header and payload information, and on paid plans verifies the signature against a public key you supply. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library.
 
 The JWT Decoder API provides a simple, reliable way to integrate jwt decoder functionality into your applications. Built for developers who need production-ready jwt decoder capabilities without the complexity of building from scratch.
 
@@ -31,7 +31,8 @@ The JWT Decoder API provides a simple, reliable way to integrate jwt decoder fun
 async function callJWTDecoderAPI() {
     try {
         const requestBody = {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InNhbXBsZS1rZXktMSJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmV4YW1wbGUuY29tIiwiYXVkIjoiYXBpLmV4YW1wbGUuY29tIiwiaWF0IjoxNzY3MjI1NjAwLCJleHAiOjIwODI3NTg0MDB9.hP0O9ELZGk-KN3upyYqdOnPY2Ig7FAzfUY_xytzOCBIhn0_TWdzl2dbLPlj0rkCDsRIQX0I5t9Xv551VI1W9dmvRGtVztyeD3IKHnIn24baOUtjU7Eb6FHL_iWMu5PqMeQJPFytuYbYhzjjCNfFPgAciGgn1Celr8H7_q51x5naMb-nbTvBc5SIX9MBnegGzabExBYQ-OsdKOoYmK0uymNIgC3834jlPuhuJHkPsxX7ncKoSQ4wheiLaZDwFANlT1NrD2XgKyyh-LIIg9CRwqB_WDktZ_R6UusNkLRhKJ20ff29ttkyRhJZzEqRRK60xYn7iPyg4YQni1J_w-oAa_w",
+    "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA9MiLgWPmLJoEIpAUHVvx\nGyo9vyW9/ryejQyuDZr1m5x0qj5y1otdjN3TwLH1PBQuinSDGiL7O56dfXwy/YIa\nKOhANcJWe78eSDs4oMh3wQnzRfseWZfFgbLHU/nWyXjPE5WRa9F+H5A96KvmatER\nG+kfWUINKR0RUTzox9xSy1KmiaQ5a2GoH3vINioVWBN1zX7Uq6mjCF5nYUMfWDyv\nuUofPWRU2saYdxD2TtVlIs8F62IQU0bnMifFXqmZ5CkmXwPAFJXAIi38Lh/vkOvw\n5B8oeiZd8ZEOLhSYlmhje1IGIwlB8B/ekKnZp4BdKsJYgGka7yn9NTuRsx8U7tfr\n7QIDAQAB\n-----END PUBLIC KEY-----"
 };
 
         const response = await fetch('https://api.apiverve.com/v1/jwtdecoder', {
@@ -60,7 +61,8 @@ curl -X POST "https://api.apiverve.com/v1/jwtdecoder" \
   -H "x-api-key: YOUR_API_KEY_HERE" \
   -H "Content-Type: application/json" \
   -d '{
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InNhbXBsZS1rZXktMSJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmV4YW1wbGUuY29tIiwiYXVkIjoiYXBpLmV4YW1wbGUuY29tIiwiaWF0IjoxNzY3MjI1NjAwLCJleHAiOjIwODI3NTg0MDB9.hP0O9ELZGk-KN3upyYqdOnPY2Ig7FAzfUY_xytzOCBIhn0_TWdzl2dbLPlj0rkCDsRIQX0I5t9Xv551VI1W9dmvRGtVztyeD3IKHnIn24baOUtjU7Eb6FHL_iWMu5PqMeQJPFytuYbYhzjjCNfFPgAciGgn1Celr8H7_q51x5naMb-nbTvBc5SIX9MBnegGzabExBYQ-OsdKOoYmK0uymNIgC3834jlPuhuJHkPsxX7ncKoSQ4wheiLaZDwFANlT1NrD2XgKyyh-LIIg9CRwqB_WDktZ_R6UusNkLRhKJ20ff29ttkyRhJZzEqRRK60xYn7iPyg4YQni1J_w-oAa_w",
+    "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA9MiLgWPmLJoEIpAUHVvx\nGyo9vyW9/ryejQyuDZr1m5x0qj5y1otdjN3TwLH1PBQuinSDGiL7O56dfXwy/YIa\nKOhANcJWe78eSDs4oMh3wQnzRfseWZfFgbLHU/nWyXjPE5WRa9F+H5A96KvmatER\nG+kfWUINKR0RUTzox9xSy1KmiaQ5a2GoH3vINioVWBN1zX7Uq6mjCF5nYUMfWDyv\nuUofPWRU2saYdxD2TtVlIs8F62IQU0bnMifFXqmZ5CkmXwPAFJXAIi38Lh/vkOvw\n5B8oeiZd8ZEOLhSYlmhje1IGIwlB8B/ekKnZp4BdKsJYgGka7yn9NTuRsx8U7tfr\n7QIDAQAB\n-----END PUBLIC KEY-----"
 }'
 ```
 
@@ -218,31 +220,43 @@ A real response from the JWT Decoder API:
   "error": null,
   "data": {
     "header": {
-      "alg": "HS256",
-      "typ": "JWT"
+      "alg": "RS256",
+      "typ": "JWT",
+      "kid": "sample-key-1"
     },
     "payload": {
       "sub": "1234567890",
       "name": "John Doe",
-      "iat": 1516239022
+      "iss": "https://auth.example.com",
+      "aud": "api.example.com",
+      "iat": 1767225600,
+      "exp": 2082758400
     },
-    "signature": "SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "signature": "hP0O9ELZGk-KN3upyYqdOnPY2Ig7FAzfUY_xytzOCBIhn0_TWdzl2dbLPlj0rkCDsRIQX0I5t9Xv551VI1W9dmvRGtVztyeD3IKHnIn24baOUtjU7Eb6FHL_iWMu5PqMeQJPFytuYbYhzjjCNfFPgAciGgn1Celr8H7_q51x5naMb-nbTvBc5SIX9MBnegGzabExBYQ-OsdKOoYmK0uymNIgC3834jlPuhuJHkPsxX7ncKoSQ4wheiLaZDwFANlT1NrD2XgKyyh-LIIg9CRwqB_WDktZ_R6UusNkLRhKJ20ff29ttkyRhJZzEqRRK60xYn7iPyg4YQni1J_w-oAa_w",
     "isExpired": false,
-    "expiresAt": null,
-    "issuedAt": "2018-01-18T01:30:22.000Z",
-    "tokenAge": "2557 days",
-    "algorithm": "HS256",
-    "expiresIn": null,
+    "expiresAt": "2036-01-01T00:00:00.000Z",
+    "issuedAt": "2026-01-01T00:00:00.000Z",
+    "tokenAge": "309 days",
+    "algorithm": "RS256",
+    "expiresIn": 288757380,
     "notYetValid": false,
     "securityAnalysis": {
       "isUnsecured": false,
-      "hasExpiration": false,
-      "isLongLived": false,
+      "hasExpiration": true,
+      "isLongLived": true,
       "issues": [
-        "Token has no expiration (exp) claim — it never expires"
+        "Token lifetime exceeds 24 hours"
       ]
     },
-    "warning": "This API only decodes JWT tokens. It does NOT verify signatures. Do not use for security validation."
+    "warning": "Signature verified with the supplied public key.",
+    "signatureVerification": {
+      "verified": true,
+      "algorithm": "RS256",
+      "keyType": "RSA",
+      "reason": null,
+      "claimsValid": true,
+      "claimsReason": null
+    }
   }
 }
 ```
