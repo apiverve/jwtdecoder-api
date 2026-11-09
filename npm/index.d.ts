@@ -25,29 +25,34 @@ declare module '@apiverve/jwtdecoder' {
 
 
   interface JWTDecoderData {
-      header:           Header;
-      payload:          Payload;
-      signature:        null | string;
-      isExpired:        boolean | null;
-      expiresAt:        null;
-      issuedAt:         Date | null;
-      tokenAge:         null | string;
-      algorithm:        null | string;
-      expiresIn:        null;
-      notYetValid:      boolean | null;
-      securityAnalysis: SecurityAnalysis;
-      warning:          null | string;
+      header:                Header;
+      payload:               Payload;
+      signature:             null | string;
+      isExpired:             boolean | null;
+      expiresAt:             Date | null;
+      issuedAt:              Date | null;
+      tokenAge:              null | string;
+      algorithm:             null | string;
+      expiresIn:             number | null;
+      notYetValid:           boolean | null;
+      securityAnalysis:      SecurityAnalysis;
+      warning:               null | string;
+      signatureVerification: SignatureVerification;
   }
   
   interface Header {
       alg: null | string;
       typ: null | string;
+      kid: null | string;
   }
   
   interface Payload {
       sub:  null | string;
       name: null | string;
+      iss:  null | string;
+      aud:  null | string;
       iat:  number | null;
+      exp:  number | null;
   }
   
   interface SecurityAnalysis {
@@ -55,6 +60,15 @@ declare module '@apiverve/jwtdecoder' {
       hasExpiration: boolean | null;
       isLongLived:   boolean | null;
       issues:        (null | string)[];
+  }
+  
+  interface SignatureVerification {
+      verified:     boolean | null;
+      algorithm:    null | string;
+      keyType:      null | string;
+      reason:       null;
+      claimsValid:  boolean | null;
+      claimsReason: null;
   }
 
   export default class jwtdecoderWrapper {

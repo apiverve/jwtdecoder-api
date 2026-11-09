@@ -30,7 +30,7 @@ class jwtdecoderWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/jwtdecoder';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"token":{"type":"string","required":true}};
+        this.validationRules = {"token":{"type":"string","required":true},"publicKey":{"type":"string","required":false}};
     }
 
     /**
