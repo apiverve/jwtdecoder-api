@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "apiverve_jwtdecoder"
-  spec.version       = "1.2.4"
+  spec.version       = "1.2.5"
   spec.authors       = ["APIVerve"]
   spec.email         = ["hello@apiverve.com"]
 
   spec.summary       = "JWT Decoder API - Ruby Client"
-  spec.description   = "JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library."
+  spec.description   = "JWT Decoder decodes JWT tokens to reveal header and payload information, and on paid plans verifies the signature against a public key you supply. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library."
   spec.homepage      = "https://apiverve.com/marketplace/jwtdecoder?utm_source=ruby&utm_medium=referral&utm_content=homepage"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
