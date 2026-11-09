@@ -1,7 +1,7 @@
 {
     "name": "apiverve/jwtdecoder",
-    "description": "JWT Decoder decodes JWT tokens to reveal header and payload information without performing signature verification. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library.",
-    "version": "1.2.4",
+    "description": "JWT Decoder decodes JWT tokens to reveal header and payload information, and on paid plans verifies the signature against a public key you supply. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library.",
+    "version": "1.2.5",
     "type": "library",
     "license": "MIT",
     "authors": [
