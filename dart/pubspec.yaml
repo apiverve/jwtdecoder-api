@@ -1,0 +1,16 @@
+name: apiverve_jwtdecoder
+description: "JWT Decoder decodes JWT tokens to reveal header and payload information, and on paid plans verifies the signature against a public key you supply. It handles JSON web token decode from any language over REST, so you can inspect claims and expiry without adding a JWT library."
+version: 1.2.5
+homepage: https://apiverve.com/marketplace/jwtdecoder?utm_source=dart&utm_medium=referral&utm_content=homepage
+repository: https://github.com/apiverve/jwtdecoder-api/tree/main/dart
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  http: ^1.1.0
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
