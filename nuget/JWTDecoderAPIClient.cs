@@ -67,7 +67,8 @@ namespace APIVerve.API.JWTDecoder
         /// <summary>Validation rules for parameters</summary>
         private static readonly Dictionary<string, ValidationRule> _validationRules = new Dictionary<string, ValidationRule>
         {
-            { "token", new ValidationRule { Type = "string", Required = true } }
+            { "token", new ValidationRule { Type = "string", Required = true } },
+            { "publicKey", new ValidationRule { Type = "string", Required = false } }
         };
 
         /// <summary>Format validation patterns</summary>

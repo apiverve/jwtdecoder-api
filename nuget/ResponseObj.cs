@@ -45,7 +45,7 @@ namespace APIVerve.API.JWTDecoder
         public bool? IsExpired { get; set; }
 
         [JsonProperty("expiresAt")]
-        public object ExpiresAt { get; set; }
+        public DateTimeOffset? ExpiresAt { get; set; }
 
         [JsonProperty("issuedAt")]
         public DateTimeOffset? IssuedAt { get; set; }
@@ -57,7 +57,7 @@ namespace APIVerve.API.JWTDecoder
         public string Algorithm { get; set; }
 
         [JsonProperty("expiresIn")]
-        public object ExpiresIn { get; set; }
+        public long? ExpiresIn { get; set; }
 
         [JsonProperty("notYetValid")]
         public bool? NotYetValid { get; set; }
@@ -67,6 +67,9 @@ namespace APIVerve.API.JWTDecoder
 
         [JsonProperty("warning")]
         public string Warning { get; set; }
+
+        [JsonProperty("signatureVerification")]
+        public SignatureVerification SignatureVerification { get; set; }
     }
 
     public partial class Header
@@ -76,6 +79,9 @@ namespace APIVerve.API.JWTDecoder
 
         [JsonProperty("typ")]
         public string Typ { get; set; }
+
+        [JsonProperty("kid")]
+        public string Kid { get; set; }
     }
 
     public partial class Payload
@@ -86,8 +92,17 @@ namespace APIVerve.API.JWTDecoder
         [JsonProperty("name")]
         public string Name { get; set; }
 
+        [JsonProperty("iss")]
+        public Uri Iss { get; set; }
+
+        [JsonProperty("aud")]
+        public string Aud { get; set; }
+
         [JsonProperty("iat")]
         public long? Iat { get; set; }
+
+        [JsonProperty("exp")]
+        public long? Exp { get; set; }
     }
 
     public partial class SecurityAnalysis
@@ -103,6 +118,27 @@ namespace APIVerve.API.JWTDecoder
 
         [JsonProperty("issues")]
         public string[] Issues { get; set; }
+    }
+
+    public partial class SignatureVerification
+    {
+        [JsonProperty("verified")]
+        public bool? Verified { get; set; }
+
+        [JsonProperty("algorithm")]
+        public string Algorithm { get; set; }
+
+        [JsonProperty("keyType")]
+        public string KeyType { get; set; }
+
+        [JsonProperty("reason")]
+        public object Reason { get; set; }
+
+        [JsonProperty("claimsValid")]
+        public bool? ClaimsValid { get; set; }
+
+        [JsonProperty("claimsReason")]
+        public object ClaimsReason { get; set; }
     }
 
     public partial class Premium
